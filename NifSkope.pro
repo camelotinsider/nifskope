@@ -26,7 +26,11 @@ QT += xml opengl network widgets
 }
 
 # C++ Standard Support (NOTE: this does not actually work with Qt 5)
-CONFIG += c++20
+!macx: {
+    CONFIG += c++20
+} else {
+    CONFIG += c++2a
+}
 
 # Dependencies
 CONFIG += nvtristrip qhull gli libfo76utils
