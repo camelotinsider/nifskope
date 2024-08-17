@@ -95,6 +95,9 @@ jobs:
       run: |
         cp release/*.xml release/NifSkope.app/Contents/MacOS/
         macdeployqt release/NifSkope.app -dmg
+        mv release/NifSkope.dmg NifSkope.dmg
+        rm release/*
+        mv NifSkope.dmg release/NifSkope.dmg
 
     - name: 'Upload Artifacts'
       uses: actions/upload-artifact@v4
