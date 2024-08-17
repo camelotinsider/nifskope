@@ -13,7 +13,6 @@ TARGET   = NifSkope
 macx: {
     QMAKE_CC = clang
     QMAKE_CXX = clang++
-
     ICON = res/nifskope.icns
 }
 
