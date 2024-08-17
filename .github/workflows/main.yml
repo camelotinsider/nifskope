@@ -82,7 +82,7 @@ jobs:
 
     - name: 'Install required packages'
       uses: jurplel/install-qt-action@v2
-	  
+
     - name: 'Install clang'	  
       run: brew install llvm
 
