@@ -87,3 +87,31 @@ jobs:
       with:
         name: build-linux
         path: NifSkope*.7z
+
+  build_macos:
+    runs-on: macos-latest
+    name: Build MacOS
+
+    steps:
+    - name: 'Checkout'
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        submodules: recursive
+
+    - name: 'Install required packages'
+      run: |
+	    brew update
+		brew install qt@5
+		brew upgrade
+
+    - name: 'Build with qmake'
+      run: |
+        qmake NifSkope.pro
+        make -j 12
+
+    - name: 'Upload Artifacts'
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-macos
+        path: NifSkope*.7z
