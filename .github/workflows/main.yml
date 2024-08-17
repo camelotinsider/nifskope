@@ -81,14 +81,11 @@ jobs:
         submodules: recursive
 
     - name: 'Install required packages'
-      run: |
-        brew update
-        brew install qt@5
-        brew upgrade
+      uses: jurplel/install-qt-action@v2
 
     - name: 'Build with qmake'
       run: |
-        /usr/local/opt/qt@5/bin/qmake NifSkope.pro
+        qmake NifSkope.pro
         make -j 12
 
     - name: 'Upload Artifacts'
